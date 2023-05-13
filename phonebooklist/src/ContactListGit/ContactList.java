@@ -101,10 +101,11 @@ public class ContactList {
 		System.out.println("The Phone Book: ");
 		
 		if(this.getHead() == null) {
-			
+			// Notify if list empty
 			System.out.println("Phone Book is empty");
 			return;
 		}
+		
 		ContactNode iterator = this.getIterator();
 		
 		while(iterator != null) {
@@ -263,30 +264,26 @@ public class ContactList {
 	public void importAndAppendPhoneBook(String filePath) {
 		
 		try {
-		// Initialize File Object and Scanner Object
+			// Initialize File Object and Scanner Object
 	        File file = new File(filePath);
 	        Scanner scanner = new Scanner(file);
 	        
-	        // Initialize iterator to scan the list.
-	        ContactNode iter = this.getIterator();
-	        
-	        while (iter != null) {
+	        // Iterate over the file content
+	        while (scanner.hasNextLine() == true) {
 	        	
 	        	// Get the current line in the file
 	            String line = scanner.nextLine();
 	            
 	            // Split by spaces
-	            String[] fields = line.split(" ");
-	            // The format is : (Name: name Phone: phone) So retrieve the 1 and 3 places.
-	            String name = fields[1];
-	            String phone = fields[3];
+	            String[] fields = line.split(",");
+	            // The format is : (Name: name , Phone: phone) So retrieve name and phone by substring function.
+	            String name = fields[0].substring(6);
+	            String phone = fields[1].substring(8);
 	            
 	            // Build new Contact and add to the list.
 	            Contact newContact = new Contact(name,phone);
 	            this.addContact(newContact);
 	            
-	            // Update reference.
-	            iter = iter.getNext();
 	        }
 	        // Close file stream
 	        scanner.close();
@@ -305,7 +302,7 @@ public class ContactList {
 	public void exportPhoneBook(String filePath) {
 		
 	    try {
-	    // Initialize File Object and Writer Object
+	    	// Initialize File Object and Writer Object
             File file = new File(filePath);
             FileWriter writer = new FileWriter(file);
             
@@ -319,15 +316,16 @@ public class ContactList {
                 // Update reference.
                 iter = iter.getNext();
             }
+            
             // Close writer
             writer.close();
              
-           } 
+       } 
 	   catch (Exception e) {
 			
             System.out.println("An error occurred.");
             e.printStackTrace();
-           } 
+       } 
 	
 	}
 

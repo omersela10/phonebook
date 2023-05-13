@@ -3,6 +3,7 @@ package ContactListGit;
 import java.util.*;
 import java.io.*;
 
+// Group Serial Number: 1
 
 // Ahigad Genish  316228022
 // Omer Sela      316539535	
@@ -35,16 +36,16 @@ public class Menu {
 		
 		boolean exit = false;
 
-	    	while (exit == false) {
+	    while (exit == false) {
 	    	 
-	    	    printOptions();
+	    	printOptions();
 	    	
-		    int option = scanner.nextInt();
+		    String option = scanner.next();
 		    scanner.nextLine(); 
 
 		    switch (option) {
 
-			    case 1:
+			    case "1":
 				// Add Contact
 				System.out.println("Enter name:");
 				String name = scanner.nextLine();
@@ -57,7 +58,7 @@ public class Menu {
 				System.out.println("Contact " + contact + "added.");
 				break;
 
-			    case 2:
+			    case "2":
 				// Remove contact
 				System.out.println("Enter name:");
 				name = scanner.nextLine();
@@ -65,43 +66,43 @@ public class Menu {
 
 				break;
 
-			    case 3:
+			    case "3":
 				// Print Phone Book
 				ourList.printList();
 				break;
 
-			    case 4:
+			    case "4":
 				// Search contact in the list.
 				System.out.println("Enter name:");
 				name = scanner.nextLine();
 				ourList.searchByName(name);
 				break;
 
-			    case 5:
+			    case "5":
 				// Sort list by name
 				ourList.sortListByName();
 				System.out.println("Phone book sorted by name.");
 				break;
 
-			    case 6:
+			    case "6":
 				// Sort list by phone number
 				ourList.sortListByPhoneNumber();
 				System.out.println("Phone book sorted by phone.");
 				break;
 
-			    case 7:
+			    case "7":
 				// Remove duplicates
 				ourList.removeDuplicate();
 				System.out.println("Duplicates removed.");
 				break;
 
-			    case 8:
+			    case "8":
 				// Reverse list.
 				ourList.reverse();
 				System.out.println("Phone book reversed.");
 				break;
 
-			    case 9:
+			    case "9":
 				// Save Phone book to file
 				System.out.println("Enter file name:");
 				String filename = scanner.nextLine();
@@ -109,7 +110,7 @@ public class Menu {
 				System.out.println("Phone book saved to file.");
 				break;
 
-			    case 10:
+			    case "10":
 				// Load and append from file.
 				System.out.println("Enter file name:");
 				filename = scanner.nextLine();
@@ -117,7 +118,7 @@ public class Menu {
 				System.out.println("Phone book loaded from file.");
 				break;
 
-			    case 11:
+			    case "11":
 				// Exit.
 				System.out.println("Exiting...");
 				exit = true;
