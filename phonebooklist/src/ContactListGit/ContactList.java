@@ -99,6 +99,12 @@ public class ContactList {
 	public void printList () {
 		
 		System.out.println("The Phone Book: ");
+		
+		if(this.getHead() == null) {
+			
+			System.out.println("Phone Book is empty");
+			return;
+		}
 		ContactNode iterator = this.getIterator();
 		
 		while(iterator != null) {

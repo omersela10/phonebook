@@ -52,12 +52,12 @@ public class Contact {
 	@Override
 	public String toString () {
 		
-		return "Name: " + this.name + " , Phone: " + this.phoneNumber + "\n";
+		return "Name: " + this.getName() + " Phone: " + this.getPhoneNumber() + "\n";
 	}
 	
 	@Override
-        public int hashCode() {
-    	
-        	return Objects.hash(this.name, this.phoneNumber);
-    	}
+    public int hashCode() {
+	
+    	return Objects.hash(this.getName(), this.getPhoneNumber());
+	}
 }
