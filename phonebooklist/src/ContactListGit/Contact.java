@@ -52,7 +52,7 @@ public class Contact {
 	@Override
 	public String toString () {
 		
-		return "Name: " + this.name + ", Phone: " + this.phoneNumber + "\n";
+		return "Name: " + this.name + " , Phone: " + this.phoneNumber + "\n";
 	}
 	
 	@Override
