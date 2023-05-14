@@ -1,5 +1,6 @@
 package ContactListGit;
 
+
 import java.util.*;
 import java.io.*;
 
@@ -36,6 +37,7 @@ public class Menu {
 		
 		boolean exit = false;
 
+	
 	    while (exit == false) {
 	    	 
 	    	printOptions();
@@ -51,11 +53,9 @@ public class Menu {
 				String name = scanner.nextLine();
 				System.out.println("Enter phone number:");
 				String phone = scanner.nextLine();
-
-				Contact contact = new Contact(name, phone);
-				ourList.addContact(contact);
-
-				System.out.println("Contact " + contact + "added.");
+				
+				Contact newContact = new Contact(name, phone);
+				ourList.addContact(newContact);
 				break;
 
 			    case "2":
@@ -63,7 +63,6 @@ public class Menu {
 				System.out.println("Enter name:");
 				name = scanner.nextLine();
 				ourList.removeContact(name);
-
 				break;
 
 			    case "3":
@@ -81,25 +80,21 @@ public class Menu {
 			    case "5":
 				// Sort list by name
 				ourList.sortListByName();
-				System.out.println("Phone book sorted by name.");
 				break;
 
 			    case "6":
 				// Sort list by phone number
 				ourList.sortListByPhoneNumber();
-				System.out.println("Phone book sorted by phone.");
 				break;
 
 			    case "7":
 				// Remove duplicates
 				ourList.removeDuplicate();
-				System.out.println("Duplicates removed.");
 				break;
 
 			    case "8":
 				// Reverse list.
 				ourList.reverse();
-				System.out.println("Phone book reversed.");
 				break;
 
 			    case "9":
@@ -107,7 +102,6 @@ public class Menu {
 				System.out.println("Enter file name:");
 				String filename = scanner.nextLine();
 				ourList.exportPhoneBook(filename);
-				System.out.println("Phone book saved to file.");
 				break;
 
 			    case "10":
@@ -115,7 +109,6 @@ public class Menu {
 				System.out.println("Enter file name:");
 				filename = scanner.nextLine();
 				ourList.importAndAppendPhoneBook(filename);
-				System.out.println("Phone book loaded from file.");
 				break;
 
 			    case "11":

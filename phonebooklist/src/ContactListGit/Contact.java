@@ -1,5 +1,8 @@
 package ContactListGit;
+
 import java.util.*;
+
+
 
 public class Contact {
 	
@@ -8,11 +11,17 @@ public class Contact {
 	
 	private String phoneNumber;
 	
-	// Constructor
+	// Constructors
 	public Contact (String newName,String newPhoneNumber){
 		
 		this.name = newName;
 		this.phoneNumber = newPhoneNumber;
+	}
+	
+	public Contact(Contact anyContact) {
+		
+		this.name = anyContact.name;
+		this.phoneNumber = anyContact.phoneNumber;
 	}
 	
 	// Getters
@@ -39,7 +48,7 @@ public class Contact {
 	public boolean equals(Object obj) {
 		
 		// Check if obj is Contact
-		if(obj instanceof Contact) {
+		if(obj instanceof Contact == true) {
 			// Casting
 			Contact other = (Contact) obj;
 			return this.name.equals(other.getName()) && this.phoneNumber.equals(other.getPhoneNumber());
